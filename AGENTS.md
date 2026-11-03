@@ -216,3 +216,11 @@ gh pr create --title "feat(phase-NN/MM): add <slug>" --body "<5-line summary>"
 ---
 
 Last reviewed: 2026-05-27.
+
+---
+
+## Cursor Cloud specific instructions
+
+- `python3` and `pip` on `PATH` are wrappers around `~/.venv`. Lesson dependencies from `requirements.txt`, plus `h5py`, `zstandard`, and `safetensors`, live in that virtualenv. PyTorch is the CPU wheel; `torch.cuda.is_available()` is false here.
+- The public site is static files in `site/`. Boot serves them at `http://127.0.0.1:8080`. After edits to `README.md`, `ROADMAP.md`, or `glossary/terms.md`, run `node site/build.js` and reload.
+- TypeScript lessons run with `tsx` (Node cannot execute `.ts` directly). Rust lessons compile with `rustc --edition 2021`. Julia lessons run with `julia`. `uv` and `pnpm` are on `PATH` for the package managers the Phase 0 lessons describe.
